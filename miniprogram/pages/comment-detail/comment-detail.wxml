@@ -1,0 +1,98 @@
+<!--comment.wxml-->
+<form catchsubmit="formSubmit" report-submit="true">
+<view class="container">
+
+  <view class="middle">
+    <view class="course" bindtap="toCourse">
+        <text class="course-title">{{comment.couName}}</text>
+    </view>
+    <view class="commenter-wrp">
+          <view class="bg-half"></view>
+        <view class="commenter flex-wrp">
+
+            <block wx:if="{{comment.anonymity}}" >
+            <view class="avatar flex-item" bindtap="toPersonal">
+                <image src="../../images/un_login.png"></image>
+            </view>
+            <view class="commenter-info flex-item" bindtap="toPersonal">
+                <text class="commenter-name">匿名用户</text>
+            </view>
+
+            </block>
+            <block wx:else>
+            <view class="avatar flex-item" bindtap="toPersonal">
+                <image src="{{comment.cavatar}}"></image>
+            </view>
+            <view class="commenter-info flex-item" bindtap="toPersonal">
+                <text class="commenter-name">{{comment.cname}}</text>
+            </view>
+
+            </block>
+        </view>
+    </view>
+
+    <!-- 主要内容 -->
+    <view class="comment-content">
+        <text>{{comment.content}}</text>
+    </view>
+
+
+
+    <!-- 评论区 -->
+    <view class="comment_area">
+      <view class="relatedTitle">
+        评论交流(点击评论内容可以回复)
+      </view>
+        <view class="entry-gap-like"></view>
+      <view class="commentheader">
+          共{{reply_length}}条评论
+      </view>
+
+            <block  wx:for="{{comment.child}}" wx:for-index="idx" wx:for-item="item">
+                <view class="comment">
+                    <view class="comment-user">
+                        <image src="{{item.author_url}}" class="gravatarImg"></image>
+                        <view style='display:flex;flex-direction: row; justify-content: space-between;width: 100%'>
+                            <view style='font-weight:bold;' bindtap="reply" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}" data-formId="{{idx}}" data-commentdate="{{item.date}}">{{item.author_name}}</view>
+                            <view bindtap="reply" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}" data-formId="{{idx}}" data-commentdate="{{item.date}}">{{item.date}}</view>
+                        </view>
+                    </view>
+                    <view class="comment-summary" bindtap="reply" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}" data-formId="{{idx}}" data-commentdate="{{item.date}}"> {{item.content}}</view>
+                     
+                      <!-- 一级回复-->
+                    <view wx:for="{{item.child}}" wx:key="itemid1" wx:for-index="idx" wx:for-item="item1">
+                        <view class="replay-user">
+                            {{item1.author_name}} 回复{{item.author_name}}:{{item1.content}}
+                        </view>
+
+
+                    </view>
+                    <!-- 一级回复-->
+
+                </view>
+            </block>
+
+
+
+    </view>
+    <!-- comment end-->
+  
+  </view><!-- middle part end-->
+  
+    <view class="comment-footer flex-wrp" >
+    
+      <view class="comment-left flex-item">
+          <image src="{{userInfo.avatarUrl}}" ></image>
+          <input type='text' confirm-type="send" cursor-spacing="10" maxlength="100" name="inputComment" value="{{content}}" focus="{{focus}}" bindblur="onReplyBlur" bindfocus="onReplyFocus" placeholder="{{placeholder}}" placeholder-class="comment-placeholder" />
+      </view>
+      <view class="comment-right flex-item">
+
+         <button class="comment-button" formType="submit">发送</button>
+      </view>
+      
+    
+    </view>
+  
+</view>
+
+</form>

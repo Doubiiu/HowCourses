@@ -1,0 +1,80 @@
+<view class="top-tab flex-wrp flex-tab">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="container notify withtab" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
+    <view class="unti-cover">
+        <block wx:if="{{courseSearchFeed_length>0}}" >
+
+
+        <block wx:for="{{courseSearchFeed}}" wx:for-index="idx" wx:for-item="item" >
+            <view class="feed-item" bindtap="bindQueTap" data-idx="{{idx}}">
+                <view class="feed-content">
+                    <view class="course" data-cid="{{item.course_id}}" >
+                        <a class="course-link">
+                            <text>{{item.title}}</text>
+                        </a>
+                    </view>
+                    <view class="comment-body">
+                        <view class="comment-actions">
+                            <view class="like dot">
+                                <a>{{item.focusCount}} 关注 </a>
+                            </view>
+                            <view class="comments">
+                                <a>{{item.comCount}} 评论 </a>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+
+        </block>
+        <block wx:else>
+          <view class="nonePage">
+            <image src="../../images/none_c.png" ></image>
+            <text>\n没有在本校找到与此相关的课程呦～</text>
+          </view>
+        </block>
+
+
+      </view>
+
+
+
+  </view>
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <view class="comment-feedfp">
+        <block wx:if="{{userSearchFeed_length>0}}" >
+
+
+        <block wx:for="{{userSearchFeed}}" wx:for-index="idx" wx:for-item="item" >
+        <view  bindtap="toPersonal" class="feed-itemfp" data-idx="{{idx}}">
+              <view class="feed-sourcefp">
+                  <a>
+                      <view class="avatar">
+                          <image src="{{item.avatar}}"></image>
+                      </view>
+                          <text>{{item.nickname}}\n{{item.school}}
+                          </text>
+                  </a>
+              </view>
+        </view>
+        </block>
+
+
+        </block>
+        <block wx:else>
+          <view class="nonePage">
+            <image src="../../images/none_c.png" ></image>
+            <text>\n没有在本校找到与此相关的用户呦～</text>
+          </view>
+        </block>
+
+    </view>
+  </view>
+</scroll-view>

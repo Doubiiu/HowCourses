@@ -1,0 +1,64 @@
+
+<view class="page centerPage-wrap forcomment" id="userCenterPage" data-router="userCenterPage">
+
+  <view class="centerPage-user-info">
+    <view class="centerPage-info-item">
+      <label>标题</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="[编号]_[名称]" bindinput="inputTitle" />
+    </view>
+    <view class="centerPage-info-item">
+      <label>学校</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" disabled='false' placeholder="{{courseInfo.school}}" bindinput="inputSchool" />
+    </view>
+    <view class="centerPage-info-item">
+      <label>开设学院</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="学院" bindinput="inputDepart" />
+    </view>
+
+    <view class="centerPage-info-item">
+      <label>开设科系</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="科系" bindinput="inputFaculty" />
+    </view>
+
+    <view class="centerPage-info-item">
+      <label>语言</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="语言" bindinput="inputLang" />
+    </view>
+
+    <view class="centerPage-info-item">
+      <label>学分</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="(一位小数)" bindinput="inputUnit" />
+    </view>
+
+    <view class="centerPage-info-item">
+      <label>标签</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="以英文逗号分隔" bindinput="inputTags" />
+    </view>
+
+              <view class='content'>
+            
+              <textarea
+                  class="ta"
+                  placeholder="请输入课程相关描述"
+                  bindinput="bindTextAreaBlur">
+              </textarea>      
+                   
+          </view>
+
+          <view class="centerPage-save-btn" bindtap="saveUserInfo">保存</view>
+  </view>
+
+
+</view>
+
+
+
+
+

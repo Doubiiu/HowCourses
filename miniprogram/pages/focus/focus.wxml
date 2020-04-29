@@ -1,0 +1,79 @@
+
+<view class="top-tab flex-wrp flex-tab">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab">
+    {{itemName}}
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class="container notify withtab" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  
+  <view class="ctnt0 placehold" hidden="{{currentNavtab==0 ? '' : true}}">
+    <view class="comment-feedfp">
+
+    <block wx:if="{{fperson_length>0}}" >
+
+
+        <block wx:for="{{fperson}}" wx:for-index="idx" wx:for-item="item" >
+        <view  bindtap="toPersonal" class="feed-itemfp" data-idx="{{idx}}">
+              <view class="feed-sourcefp">
+                  <a>
+                      <view class="avatar">
+                          <image src="{{item.uavatar}}"></image>
+                      </view>
+                          <text>{{item.uname}}\n{{item.uschool}}
+                          </text>
+                  </a>
+              </view>
+        </view>
+        </block>
+
+
+    </block>
+    <block wx:else>
+          <view class="nonePage">
+            <image src="../../images/none_c.png" ></image>
+            <text>\n你还没有关注任何用户呦～</text>
+          </view>
+    </block>
+
+
+
+
+    </view>
+  </view>
+
+
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <block wx:if="{{fcourse_length>0}}" >
+
+    <view class="unti-cover">
+      <block wx:for="{{fcourse}}" wx:for-index="idx" wx:for-item="item" >
+          <view class="feed-item" data-idx="{{idx}}"  bindtap="toCourse">
+              <view class="feed-content">
+                  <view class="course" data-cid="{{item.course_id}}">
+                      <a class="course-link">
+                          <text>{{item.cname}}</text>
+                      </a>
+                  </view>
+                  <view class="comment-body">
+                      <view class="comment-actions" bindtap="bindItemTap">
+
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </block>
+    </view>
+    </block>
+
+    <block wx:else>
+          <view class="nonePage">
+            <image src="../../images/none_c.png" ></image>
+            <text>\n你还没有关注任何课程呦～</text>
+          </view>
+    </block>
+  
+  </view>
+
+</scroll-view>
+

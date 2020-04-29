@@ -1,0 +1,128 @@
+<!--course.wxml-->
+<view class="container forcomment">
+  
+
+
+<scroll-view scroll-y="true" class="middle" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-top="{{scrollTop}}">
+
+  
+    <view class="course-wrp">
+        <view class="course-item">
+            <view class="cou-tag">
+                <text class="tag" wx:for="{{course_tag}}">{{item}}</text>
+            </view>
+            <view class="cou-title">
+                {{course.title}}
+            </view>
+            <view class="cou-content">
+              <text>
+                描述：{{course.desc}}\n
+                学校：{{course.school}}\n
+                开设院系：{{course.depart}}\t\t{{course.faculty}}\n
+                语言：{{course.lang}}\n
+                学分：{{course.unit}}\n
+              </text>
+            </view>
+            <view class="cou-follow">
+                <view class="left">
+                    <view class="watch">
+                        <image src="../../images/eye.png"></image>
+                        <text>0</text>
+                    </view>
+                    <view class="comment">
+                        <image src="../../images/comment2.png"></image>
+                        <text>{{commentFeed_length}}</text>
+                    </view>
+                </view>
+        <block wx:if="{{focused}}" >
+        <view class="right" bindtap="focus">
+          已关注
+        </view>
+        </block>
+        <block wx:else>
+         <view class="right" bindtap="focus">
+          关注
+         </view>
+        </block>
+
+            </view>
+        </view>
+    </view>
+  
+
+  <block wx:if="{{commentFeed_length>0}}" >
+  <view class="unti-cover">
+
+    <view class="comment-feed">
+    <block wx:for="{{commentFeed}}" wx:for-index="idx" wx:for-item="item" >
+        
+        <view  bindtap="bindItemTap" class="feed-item" data-idx="{{idx}}">
+            <view class="feed-source">
+                <a class="" bindTap="">
+                    <block wx:if="{{item.anonymity}}" >
+                      <view class="avatar">
+                          <image src="../../images/un_login.png"></image>
+                      </view>
+                        <text>匿名用户</text>
+                    </block>
+                    <block wx:else>
+                      <view class="avatar">
+                          <image src="{{item.cavatar}}"></image>
+                      </view>
+                        <text>{{item.cname}}</text>
+                    </block>
+                </a>
+            </view>
+            <view class="feed-content">
+                <view class="comment-body">
+                    <view>
+                        <text class="comment-txt">{{item.content}}</text>
+                    </view>
+                    <view class="comment-actions">
+                        <!-- <view class="comments dot">
+                            <a>0 评论 </a>
+                        </view> -->
+                        <view class="time">
+                            <a>{{item.time}}</a>
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        
+    </block>
+    </view>
+ 
+ 
+
+
+
+  </view>
+
+
+ </block>
+<block wx:else>
+  <view class="nonePage">
+    <image src="../../images/none_c.png" ></image>
+    <text>\n此课程还没有被添加任何评论呦～</text>
+  </view>
+</block>
+
+</scroll-view>
+  
+    <view class="comment-footer flex-wrp" >
+      
+        <view class="comment-left flex-item">
+            <image src="{{userInfo.avatarUrl}}" ></image>
+            <input placeholder="添加课程评论..." placeholder-class="comment-placeholder" bindtap="writeComment"/>
+        </view>
+        <view class="comment-right flex-item" bindtap="toReply">
+            <image src="../../images/focus.png"></image>
+            <text>{{commentFeed_length}}</text>
+        </view>
+
+    </view>
+</view>
+

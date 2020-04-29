@@ -1,0 +1,21 @@
+
+  
+<view class="switch">
+    <text>课程：{{courseName}}</text>
+</view>
+
+<view class='content'>
+
+
+  <textarea
+    class="ta"
+    placeholder="请输入你对此课程的看法"
+    bindinput="bindTextAreaBlur">
+  </textarea>      
+                   
+</view>
+<view class="switch">
+    <text>匿名：</text>
+    <switch type="checkbox" checked="{{isChecked}}" bindchange="changeSwitch"/>
+</view>
+<view class="centerPage-save-btn" bindtap="saveUserInfo">保存</view>

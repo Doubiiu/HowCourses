@@ -1,0 +1,73 @@
+
+
+
+<scroll-view scroll-y="true" class="container  forcomment" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  
+  
+    <view class="user flex-wrp">
+      <view class="avatar flex-item">
+        <image class="userinfo-avatar" src="{{userDB.avatar}}" background-size="cover"></image>
+      </view>
+      <view class="user-info flex-item">
+        <text class="userinfo-nickname">{{userDB.nickname}}，{{userDB.age?userDB.age:20}}岁</text>
+        <text class="edit">{{userDB.school}}</text>
+        <text class="edit">{{userDB.major}}</text>
+        <text class="edit">{{userDB.regTime}}加入</text>
+        
+      </view>
+
+      <view class="follow_edit flex-item" bindtap="toInformation">
+        <text> 编辑 </text>
+      </view>
+    </view>
+
+
+    <text>我的创作</text>
+    <block wx:if="{{feed_length>0}}" >
+    <view class="unti-cover">
+      <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+          <view class="feed-item">
+              <view class="feed-source">
+                  <a class="">
+                      <view class="avatar">
+                          <image src="{{item.cavatar}}"></image>
+                      </view>
+                      <text>我评论了课程：</text>
+                  </a>
+                  
+              </view>
+              <view class="feed-content">
+                  <view class="course" data-cid="{{item.course_id}}" bindtap="bindQueTap">
+                      <a class="course-link">
+                          <text>{{item.couName}}</text>
+                      </a>
+                  </view>
+                  <view class="comment-body">
+                      <view bindtap="bindItemTap" data-comid="{{item.comment_id}}">
+                          <text class="comment-txt">{{item.content}}</text>
+                      </view>
+                      <view class="comment-actions" bindtap="bindItemTap">
+                          <view class="like dot">
+                              <a>{{item.cNum}} 评论 </a>
+                          </view>
+                          <view class="comments">
+                              <a>{{item.time}} </a>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </block>
+    </view>
+    </block>
+    <block wx:else>
+    <view class="nonePage">
+      <image src="../../images/none_c.png" ></image>
+      <text>\n你还没有评论任何课程呦～</text>
+    </view>
+</block>
+
+  
+
+</scroll-view>
+

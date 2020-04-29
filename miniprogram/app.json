@@ -1,0 +1,50 @@
+{
+  "cloud":true,
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/course/course",
+    "pages/focus/focus",
+    "pages/mine/mine",
+    "pages/information/information",
+    "pages/comment-detail/comment-detail",
+    "pages/course-detail/course-detail",
+    "pages/search/search",
+    "pages/personal/personal",
+    "pages/createCourse/createCourse",
+    "pages/addComment/addComment"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0068C4",
+    "navigationBarTitleText": "HowCourses",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#ffa589",
+    "backgroundColor": "#eeeeee",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/course/course",
+        "iconPath": "images/course.png",
+        "selectedIconPath": "images/course.png",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/focus/focus",
+        "iconPath": "images/focus_tab.png",
+        "selectedIconPath": "images/focus_tab.png",
+        "text": "关注"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

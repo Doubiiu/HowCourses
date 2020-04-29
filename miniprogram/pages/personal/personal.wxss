@@ -1,0 +1,63 @@
+.user {
+  width: 725rpx;
+  background: #ffffff;
+  padding: 30rpx 25rpx 30rpx 0;
+  margin: 15rpx 0 0 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #dcdcdc;
+  box-shadow: 0 2px 5px #eeeeee;
+}
+.user .userinfo-avatar{
+  flex: 1;
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+}
+.user .user-info{
+  flex: 5;
+  text-align: left;
+}
+.user .user-info text{
+  display: block;
+}
+.user .user-info .userinfo-nickname{
+  padding: 8rpx 0 10rpx 0;
+  font-size: 30rpx;
+  color: #818A8F;
+}
+.user .user-info .edit{
+  font-size: 30rpx;
+  color: #bababa;
+  line-height: 34rpx;
+}
+.user .follow_edit{
+    flex: 2;
+
+    padding: 20rpx 0;
+    font-size: 22rpx;
+}
+.user .follow_edit text{
+    display: inline-block;
+    padding: 15rpx 20rpx;
+    color: #40bcd0;
+    border: solid 2px #40bcd0;
+    border-radius: 6rpx;
+}
+.nonePage{
+  height: 100%;
+  width: 100%;
+}
+.nonePage image{
+  display: flex;
+  justify-content: center;
+  padding: 150rpx 60rpx 0rpx 90rpx;
+  height: 600rpx;
+  width: 600rpx;
+
+}
+.nonePage text{
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+}

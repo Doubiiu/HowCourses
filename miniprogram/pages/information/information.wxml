@@ -1,0 +1,76 @@
+<view class="page centerPage-wrap forcomment" id="userCenterPage" data-router="userCenterPage">
+
+  <view class="centerPage-user-info">
+    <view class="centerPage-info-item">
+      <label>昵称</label>
+      <input class="nickname" placeholder="{{userDB.nickname}}"  bindinput="inputNname" />
+    </view>
+    <view class="centerPage-info-item">
+      <label>年龄</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname"  placeholder="{{userDB.age}}" bindinput="inputAge" />
+    </view>
+    <view class="centerPage-info-item">
+      <label>邮箱</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="{{userDB.email}}" bindinput="inputEmail" />
+    </view>
+
+    <view class="centerPage-info-item">
+      <label class="ico-moon "></label>
+      <view class="section">
+        <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderArray}}">
+          <view class="picker">
+            性别：{{genderArray[genderIndex]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
+
+    <view class="centerPage-info-item">
+      <label class="ico-moon icon-rightarrow"></label>
+      <view class="section">
+        <view class="section__title"></view>
+        <picker 
+          mode="multiSelector" 
+          bindchange="bindMultiPickerChange" 
+          bindcolumnchange="bindMultiPickerColumnChange"
+          value="{{multiIndex}}" 
+          range="{{multiArray}}"
+          range-key="name"
+        >
+          <view class="picker">学校：{{multiArray[1][multiIndex[1]].name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="centerPage-info-item">
+      <label>专业</label>
+      <label class="ico-moon icon-rightarrow"></label>
+      <input class="nickname" placeholder="{{userDB.major}}" bindinput="inputMajor" />
+    </view>
+
+              <view class='content'>
+            
+              <textarea
+                  class="ta"
+                  placeholder="{{userDB.desc}}"
+                  bindinput="bindTextAreaBlur">
+              </textarea>      
+                   
+          </view>
+
+          <view class="centerPage-save-btn" bindtap="saveUserInfo">保存</view>
+  </view>
+
+
+</view>
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+.comment-feedfp {
+    padding: 0;
+    font-size: 14rpx;
+    background: #F0F4F3;
+    color: #000;
+}
+.container .feed-itemfp{
+  height: 100rpx;
+  width: 690rpx;
+  padding: 30rpx 30rpx 20rpx;
+  margin: 7rpx 0 6rpx 0;
+  background: #ffffff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 5px #eeeeee;
+}
+.container .feed-itemfp .feed-sourcefp .avatar image{
+  /*position: absolute;*/
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}
+.container .feed-itemfp .feed-sourcefp text{
+  /*position: absolute;*/
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: top;
+  margin: 0 0 0 15rpx;
+  color: #a0acac;
+  font-size: 26rpx;
+  padding: 0rpx 0 0rpx 0;
+}
+
+.container .feed-itemfp .feed-sourcefp{
+  width: 690rpx;
+  left: 0;
+  height: 50rpx;
+}
+.container .feed-itemfp .feed-sourcefp .avatar{
+  position: relative;
+  display: inline-block;
+}
+.container .feed-itemfp .feed-sourcefp a{
+  display: inline-block;
+  height: 40rpx;
+}
+
+
+
+.nonePage{
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+}
+.nonePage image{
+  display: flex;
+  justify-content: center;
+  padding: 150rpx 60rpx 0rpx 90rpx;
+  height: 600rpx;
+  width: 600rpx;
+
+}
+.nonePage text{
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+}

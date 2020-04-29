@@ -1,0 +1,80 @@
+/**index.wxss**/
+
+.container{
+  height: 1500rpx;
+}
+.container .search{
+  width: 725rpx;
+  height: 65rpx;
+  position: fixed;
+  z-index: 2;
+  padding: 12.5rpx 15rpx 12.5rpx 15rpx;
+  background: #2A8CE5;
+}
+.container .search-left{
+  flex: 8;
+  background: #4EA3E7;
+  text-align: left;
+}
+.container .search-left input{
+  display: inline-block;
+  height: 65rpx;
+  font-size: 26rpx;
+}
+.search-placeholder{
+  color: #8CCEFD;
+  line-height: 20rpx;
+}
+.container .search .search-left image{
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  padding: 15rpx 15rpx 15rpx 20rpx;
+}
+.container .search .search-right{
+  flex: 8;
+  background: #2A8CE5;
+  text-align: center;
+  padding: 15rpx 0 15rpx 0;
+}
+.container .search .search-right .picker{
+  display: inline-block;
+  height: 65rpx;
+  font-size: 26rpx;
+  color: rgb(147, 192, 235);
+}
+
+.container{
+  padding: 0;
+  font-size: 14rpx;
+  background: #F0F4F3;
+  color: #000;
+}
+.anti-cover{
+  z-index: 1;
+  padding-top: 80rpx;
+}
+.moveButton{
+  display:flex;justify-content:center;
+  border-radius:50rpx;
+  box-shadow: 0 3rpx 5rpx 1rpx #9ebce499;
+  position:fixed;background: rgb(82, 158, 230); line-height:50rpx;
+}
+/*feed-item part is in app.wxss for multiplexing*/
+.nonePage{
+  height: 100%;
+  width: 100%;
+}
+.nonePage image{
+  display: flex;
+  justify-content: center;
+  padding: 150rpx 60rpx 0rpx 90rpx;
+  height: 600rpx;
+  width: 600rpx;
+
+}
+.nonePage text{
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+}

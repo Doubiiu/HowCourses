@@ -1,0 +1,71 @@
+<scroll-view scroll-y="true" class="container notify forcomment" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  
+  
+    <view class="user flex-wrp">
+      <view class="avatar flex-item">
+        <image class="userinfo-avatar" src="{{person.avatar}}" background-size="cover"></image>
+      </view>
+      <view class="user-info flex-item">
+        <text class="userinfo-nickname">{{person.nickname}}，{{person.age}}岁</text>
+        <text class="edit">{{person.school}}</text>
+        <text class="edit">{{person.major}}</text>
+        <text class="edit">{{person.regTime}}加入</text>
+        
+      </view>
+
+      <view class="follow_edit flex-item" bindtap="focus">
+        <block wx:if="{{focused}}" >
+        <text>已关注</text>
+        </block>
+        <block wx:else>
+        <text>+ 关注</text>
+        </block>
+      </view>
+    </view>
+
+    <text>ta的创作</text>
+    <block wx:if="{{feed_length>0}}" >
+    <view class="unti-cover">
+      <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+          <view class="feed-item">
+              <view class="feed-source">
+                  <a class="">
+                      <view class="avatar">
+                          <image src="{{item.cavatar}}"></image>
+                      </view>
+                      <text>ta评论了课程：</text>
+                  </a>
+                  
+              </view>
+              <view class="feed-content">
+                  <view class="course" data-cid="{{item.course_id}}" bindtap="bindQueTap">
+                      <a class="course-link">
+                          <text>{{item.couName}}</text>
+                      </a>
+                  </view>
+                  <view class="comment-body">
+                      <view bindtap="bindItemTap" data-comid="{{item.comment_id}}">
+                          <text class="comment-txt">{{item.content}}</text>
+                      </view>
+                      <view class="comment-actions" bindtap="bindItemTap">
+                          <view class="like dot">
+                              <a>{{item.cNum}} 评论 </a>
+                          </view>
+                          <view class="comments">
+                              <a>{{item.time}} </a>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </block>
+    </view>
+    </block>
+    <block wx:else>
+    <view class="nonePage">
+      <image src="../../images/none_c.png" ></image>
+      <text>\nta还没有评论任何课程呦～</text>
+    </view>
+</block>
+  
+</scroll-view>
